@@ -1,8 +1,10 @@
 package com.example.user.wordcounter;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -11,21 +13,48 @@ import android.widget.TextView;
 
 public class WordCountActivity extends AppCompatActivity {
 
-    TextView mAnswerText;
+TextView mAnswerText;
+
+    EditText mQuestionEditText;
+    Button mSubmitButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer);
+        setContentView(R.layout.activity_main);
 
-        mAnswerText =(TextView)findViewById(R.id.answer_text);
+        mQuestionEditText =(EditText) findViewById(R.id.question_text);
+        mSubmitButton=(Button)findViewById(R.id.submit_button);
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
 
-        String answer = extras.getString("answer");
-        mAnswerText.setText(answer);
+        mSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+
+//                not sure on the below method
+                WordCount wordCount = new WordCount("");
+                String stringAnswer = wordCount.wordCounter().toString();
+
+                Intent intent = new Intent(WordCountActivity.this, WordCountActivity.class);
+
+                intent.putExtra("answer", stringAnswer);
+
+                startActivity(intent);
+            }
+        });
+
+
+
+//        mAnswerText =(TextView)findViewById(R.id.answer_text);
+
+
+
     }
 
 
 
 }
+
+
+
+

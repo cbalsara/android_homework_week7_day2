@@ -17,17 +17,17 @@ public class WordsTest {
 
     @Before
     public void before(){
-        wordCount = new WordCount("This string is entering");
+        wordCount = new WordCount("This string is entered as an example");
     }
 
     @Test
     public void enteringTextTest(){
-        assertEquals("This string is entered", wordCount.getEntry());
+        assertEquals("This string is entered as an example", wordCount.getEntry());
     }
 
     @Test
     public void CountingAllTheWords(){
-        assertEquals(4, wordCount.wordCounter().intValue());
+        assertEquals(7, wordCount.wordCounter().intValue());
     }
 
 
