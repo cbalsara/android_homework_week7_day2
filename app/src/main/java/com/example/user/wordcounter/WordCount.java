@@ -1,27 +1,27 @@
 package com.example.user.wordcounter;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+
 
 /**
  * Created by user on 08/11/2016.
  */
 
-public class WordCount extends AppCompatActivity {
+public class WordCount  {
+    private String entry;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        Log.d("WordCount", "onCreate is up and running properly!");
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+    public WordCount(String entry){
+        this.entry = entry;
     }
 
+    public String getEntry(){
+        return this.entry;
+    }
 
-
-
-
-
-
+    public Integer wordCounter() {
+        int count = entry.isEmpty() ? 0 : entry.split("\\s+").length;
+        return count;
+    }
 }
+
+
+
