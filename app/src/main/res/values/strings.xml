@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WordCounter</string>
+    <string name="response"> Please enter your chosen word(s)!</string>
 </resources>
